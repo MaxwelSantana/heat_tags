@@ -5,6 +5,7 @@ defmodule HeatTags.Tags.Count do
     Get.today_messages()
     |> Task.async_stream(&count_words(&1.message))
     |> Enum.reduce(%{}, fn elem, acc -> sum_values(elem, acc) end)
+    |> IO.inspect()
   end
 
   defp count_words(message) do
