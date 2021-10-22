@@ -5,6 +5,8 @@ defmodule HeatTags.Message do
 
   @required_params [:message, :username, :email]
 
+  @derive {Jason.Encoder, only: [:id] ++ @required_params}
+
   schema "messages" do
       field :message, :string
       field :username, :string
